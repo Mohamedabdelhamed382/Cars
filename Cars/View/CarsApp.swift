@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct CarsApp: App {
+    @AppStorage("isOnbording") var isOnbording: Bool = true
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+            if isOnbording { OnboardingView() } else { CarListView() }
+         }
     }
 }
